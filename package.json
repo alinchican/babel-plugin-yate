@@ -1,0 +1,42 @@
+{
+  "name": "babel-plugin-yate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "engines": {
+    "node": ">=8",
+    "npm": ">=3.10",
+    "yarn": ">=1.7.0"
+  },
+  "scripts": {
+    "lint": "./node_modules/eslint/bin/eslint.js .",
+    "jest": "./node_modules/jest/bin/jest.js",
+    "test": "npm run lint && npm run jest"
+  },
+  "dependencies": {
+    "babel-plugin-macros": "^3.0.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.15",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-jest": "^24.3.5",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1"
+  },
+  "homepage": "https://github.com/alinchican/babel-plugin-yate",
+  "repository": "https://github.com/alinchican/babel-plugin-yate",
+  "bugs": "https://github.com/alinchican/babel-plugin-yate/issues",
+  "description": "Simple and efficient i18n for babel and babel-plugin-macros.",
+  "license": "MIT",
+  "keywords": [
+    "i18n",
+    "babel-plugin",
+    "babel-plugin-macros",
+    "translation",
+    "translate"
+  ],
+  "author": "Alin Chican <alin@chican.ro> (https://chican.ro/)"
+}

@@ -1,0 +1,9 @@
+.DS_Store
+node_modules
+coverage
+__mocks__
+__tests__
+.editorconfig
+.eslint*
+package-lock.json
+jest.config.js

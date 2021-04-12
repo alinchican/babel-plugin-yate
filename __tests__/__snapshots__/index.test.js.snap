@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return original string if translation is not found 1`] = `"\`Welcome user to \${place}!\`;"`;
+
+exports[`should return translation containing repeated parameters 1`] = `"\`Offer available from \${minAmount} \${currency} to \${maxAmount} \${currency}\`;"`;
+
+exports[`should return translation containing strings looking like parameters 1`] = `"\`Salutare {Budapest}, pardon, \${\`Bucharest\`}\`;"`;
+
+exports[`should return translation using function with default context 1`] = `"\`Salut \${name}, bine ai venit la \${place}!\`;"`;
+
+exports[`should return translation using function without context 1`] = `"\`Salut \${name}, bine ai venit la \${place}!\`;"`;
+
+exports[`should skip code not matching tagName 1`] = `"random\`Welcome to \${place}, \${name}!\`;"`;
+
+exports[`should transform code with custom tagName 1`] = `"\`Salut \${name}, bine ai venit la \${place}!\`;"`;
+
+exports[`should transform code with default tagName 1`] = `"\`Salut \${name}, bine ai venit la \${place}!\`;"`;
