@@ -1,6 +1,7 @@
 # babel-plugin-yate
 
 Simple and efficient i18n babel plugin. It replaces strings at build time.
+
 babel-plugin-macros macro also included for use in create-react-app.
 
 **Input**
