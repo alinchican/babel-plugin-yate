@@ -1,4 +1,5 @@
 # babel-plugin-yate
+[![Node.js Package](https://github.com/alinchican/babel-plugin-yate/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/alinchican/babel-plugin-yate/actions/workflows/npm-publish.yml)
 
 Simple and efficient i18n babel plugin. It replaces strings at build time.
 
