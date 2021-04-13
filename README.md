@@ -17,10 +17,10 @@ t("informal")`Hello ${name}!`;
 **Output**
 
 ```js
-t`Salut ${name}!`;
-t`Bine ai venit la ${place}, ${name}}! ${name}, ma bucur ca esti aici!`;
-t`Salut ${name}!`;
-t`Yo ${name}!`;
+`Salut ${name}!`;
+`Bine ai venit la ${place}, ${name}}! ${name}, ma bucur ca esti aici!`;
+`Salut ${name}!`;
+`Yo ${name}!`;
 ```
 
 ## Translation file
