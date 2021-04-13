@@ -1,9 +1,7 @@
 # babel-plugin-yate
 [![Node.js Package](https://github.com/alinchican/babel-plugin-yate/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/alinchican/babel-plugin-yate/actions/workflows/npm-publish.yml)
 
-Simple and efficient i18n babel plugin. It replaces strings at build time.
-
-babel-plugin-macros macro also included for use in create-react-app.
+Simple and efficient i18n for babel and babel-plugin-macros. It replaces strings at build time.
 
 **Input**
 
