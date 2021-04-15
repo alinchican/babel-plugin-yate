@@ -1,9 +1,31 @@
+const fs = require('fs');
 const getTranslation = require("./getTranslation");
 const getTranslationsObject = require("./getTranslationsObject");
 const constants = require("./constants");
 
 module.exports = function ({ types }) {
   return {
+    pre(state) {
+
+      const {
+        translationsFile = constants.DEFAULT_TRANSLATIONS_FILE,
+      } = this.opts;
+
+      const translationsObject = getTranslationsObject(translationsFile);
+      console.log("definig translationsObject");
+
+      this.notFound = {};
+      this.translationsFile = translationsFile;
+      this.translationsObject = translationsObject;
+    },
+    post(state) {
+      if (Object.keys(this.notFound).length > 0) {
+        const newData = { ...this.translationsObject, ...this.notFound };
+        const outputString = JSON.stringify(newData, null, 2);
+
+        fs.writeFileSync(this.translationsFile, outputString);
+      }
+    },
     visitor: {
       TaggedTemplateExpression(path, state) {
         const {
@@ -13,7 +35,6 @@ module.exports = function ({ types }) {
 
         const {
           tagName = constants.DEFAULT_TAGNAME,
-          translationsFile = constants.DEFAULT_TRANSLATIONS_FILE,
         } = options;
 
         const isTag = types.isIdentifier(tag, { name: tagName });
@@ -76,9 +97,6 @@ module.exports = function ({ types }) {
           }
         }
 
-        // Get translations object
-        const translationsObject = getTranslationsObject(translationsFile);
-
         // Get translated template literal
         let templateLiteralTranslation;
 
@@ -86,15 +104,20 @@ module.exports = function ({ types }) {
         templateLiteralTranslation = getTranslation(
           templateLiteral,
           context,
-          translationsObject
+          this.translationsObject
         );
 
         // Compose source code replacement
-        const sourceString = "`" + templateLiteralTranslation + "`";
+        const sourceString = "`" + templateLiteralTranslation.string + "`";
+
+        if (templateLiteralTranslation.notFound) {
+          const formattedTranslationString = templateLiteralTranslation.string.split('${').join('{');
+          this.notFound[formattedTranslationString] = formattedTranslationString
+        }
 
         // Replace with translation in source code
         path.replaceWithSourceString(sourceString);
       },
-    },
+    }
   };
 };
