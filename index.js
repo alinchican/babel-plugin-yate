@@ -12,7 +12,6 @@ module.exports = function ({ types }) {
       } = this.opts;
 
       const translationsObject = getTranslationsObject(translationsFile);
-      console.log("definig translationsObject");
 
       this.notFound = {};
       this.translationsFile = translationsFile;
