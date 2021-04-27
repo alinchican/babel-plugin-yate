@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require("path");
 const isValidTranslationsObject = require("./isValidTranslationsObject");
 
@@ -14,7 +15,8 @@ const getTranslationsObject = (file) => {
   let translationsObject;
 
   try {
-    translationsObject = require(translationsFilePath);
+    let rawdata = fs.readFileSync(translationsFilePath);
+    translationsObject = JSON.parse(rawdata);
   } catch (error) {
     throw new Error(
       `Can't find translation file. Provided path: ${translationsFilePath}`
